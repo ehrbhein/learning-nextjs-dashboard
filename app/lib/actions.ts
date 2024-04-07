@@ -39,7 +39,8 @@ export async function createInvoice(prevState: State, formData: FormData) {
     status: formData.get('status'),
   });
 
-  console.log(validatedFields.error.flatten().fieldErrors);
+  // Note: only use this on local. `validatedFields.error` will fail on production.
+  // console.log(validatedFields.error.flatten().fieldErrors);
 
   // If form validation fails, return errors early. Otherwise, continue.
   if (!validatedFields.success) {
